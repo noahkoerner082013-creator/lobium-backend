@@ -32,8 +32,9 @@ export default async function handler(req, res) {
 
   try {
     const db = getFirebase();
-    // await db.listCollections();
-
+    await db.collection("lobium_connection_test").doc("check").set({
+      status: "working"
+    });
     return res.status(200).json({
       app: "Lobium OS",
       status: "Firebase connected",
