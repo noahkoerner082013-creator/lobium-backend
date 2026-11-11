@@ -35,7 +35,8 @@ export default async function handler(req, res) {
     console.error("Firebase initialization failed:", error.message);
 
     return res.status(500).json({
-      error: "Firebase connection failed"
+      error: "Firebase connection failed",
+      code: error.code
     });
   }
 }
