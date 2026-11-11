@@ -8,7 +8,8 @@ function getFirebase() {
     );
 
     admin.initializeApp({
-      credential: admin.credential.cert(serviceAccount)
+      credential: admin.credential.cert(serviceAccount),
+      projectId: process.env.FIRE_PROJECT_ID
     });
   }
 
