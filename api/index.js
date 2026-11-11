@@ -1,8 +1,41 @@
 
-export default function handler(req, res) {
-  res.status(200).json({
-    app: "Lobium OS",
-    status: "Backend running",
-    firebaseProject: "lobium-a3684"
-  });
+import admin from "firebase-admin";
+
+function getFirebase() {
+  if (!admin.apps.length) {
+    const serviceAccount = JSON.parse(
+      process.env.FIREBASE_SERVICE_ACCOUNT
+    );
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount)
+    });
+  }
+
+  return admin.firestore();
+}
+
+export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
+  }
+
+  try {
+    const db = getFirebase();
+    await db.listCollections();
+
+    return res.status(200).json({
+      app: "Lobium OS",
+      status: "Firebase connected",
+      firebaseProject: process.env.FIREBASE_PROJECT_ID
+    });
+  } catch (error) {
+    console.error("Firebase connection failed");
+
+    return res.status(500).json({
+      error: "Firebase connection failed"
+    });
+  }
 }
