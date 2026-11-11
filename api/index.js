@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       firebaseProject: process.env.FIREBASE_PROJECT_ID
     });
   } catch (error) {
-    console.error("Firebase connection failed");
+    console.error("Firebase initialization failed:", error.message);
 
     return res.status(500).json({
       error: "Firebase connection failed"
