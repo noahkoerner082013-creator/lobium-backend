@@ -20,7 +20,7 @@ if (serviceAccount.project_id !== process.env.FIREBASE_PROJECT_ID) {
     });
   }
 
-  return admin.firestore();
+  return admin.firestore("default");
 }
 
 export default async function handler(req, res) {
