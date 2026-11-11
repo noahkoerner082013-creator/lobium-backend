@@ -6,12 +6,17 @@ function getFirebase() {
     const serviceAccount = JSON.parse(
       process.env.FIREBASE_SERVICE_ACCOUNT
     );
-if (serviceAccount.project_id !== process.env.FIRE_PROJECT_ID) {
-  throw new Error("service account project mismatch");
+if (serviceAccount.project_id !== process.env.FIREBASE_PROJECT_ID) {
+  throw new Error(
+    "Project mismathc: service account=" +
+    serviceAccount.project_id +
+   ", environment=" +
+   process.env.FIREBASE_PROJECT_ID
+  );
 }
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
-      projectId: process.env.FIRE_PROJECT_ID
+      projectId: process.env.FIREBASE_PROJECT_ID
     });
   }
 
