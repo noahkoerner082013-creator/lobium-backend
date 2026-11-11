@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
   try {
     const db = getFirebase();
-    await db.listCollections();
+    // await db.listCollections();
 
     return res.status(200).json({
       app: "Lobium OS",
