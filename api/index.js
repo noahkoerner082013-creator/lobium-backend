@@ -6,7 +6,7 @@ function getFirebase() {
     const serviceAccount = JSON.parse(
       process.env.FIREBASE_SERVICE_ACCOUNT
     );
-if (service account.project_id !== process.env.FIRE_PROJECT_ID) {
+if (serviceAccount.project_id !== process.env.FIRE_PROJECT_ID) {
   throw new Error("service account project mismatch");
 }
     admin.initializeApp({
