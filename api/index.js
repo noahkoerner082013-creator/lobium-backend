@@ -1,5 +1,5 @@
-
 import admin from "firebase-admin";
+import { getFirestore } from "firebase-admin/firestore";
 
 function getFirebase() {
   if (!admin.apps.length) {
@@ -20,7 +20,7 @@ if (serviceAccount.project_id !== process.env.FIREBASE_PROJECT_ID) {
     });
   }
 
-  return admin.firestore("default");
+  return getFirestore("default");
 }
 
 export default async function handler(req, res) {
