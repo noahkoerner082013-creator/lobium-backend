@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://google-classroom-lobium-os.neocities.org"
+          "value": "https://noahkoerner082013-creator.github.io"
         },
         {
           "key": "Access-Control-Allow-Methods",
