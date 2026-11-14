@@ -10,7 +10,7 @@ import { getFirestore } from "firebase-admin/firestore";
 import { createHash } from "node:crypto";
 
 const ORIGIN =
-  "https://google-classroom-lobium-os.neocities.org";
+  "https://noahkoerner082013-creator.github.io";
 
 function database() {
   if (!admin.apps.length) {
